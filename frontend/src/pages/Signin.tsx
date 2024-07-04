@@ -11,7 +11,6 @@ import { FcGoogle } from "react-icons/fc";
 const Signin: React.FC = () => {
 	const BACKEND_URL = import.meta.env.VITE_DATABASE_URL;
 	const navigate = useNavigate();
-	const [error, setError] = useState<string | null>(null);
 	const [show, setShow] = useState<boolean>(false);
 	const [userInput, setUserInput] = useState<signInType>({
 		email: "",
@@ -35,10 +34,9 @@ const Signin: React.FC = () => {
 				userInput
 			);
 			if (res.data.status === 406 || res.data.status === 401) {
-				setError(res.data.message);
 				toast((t) => (
-					<div className="bg-red-700 text-white p-4 rounded-md shadow-lg -mx-5 -my-3">
-						<span className="font-bold">{error}</span>
+					<div className="bg-red-700 text-white p-4 rounded-md shadow-lg -mx-5 -my-3 w-96">
+						<span className="font-bold">{res.data.message}</span>
 						<button
 							className="ml-2 text-red-500"
 							onClick={() => {
@@ -98,7 +96,7 @@ const Signin: React.FC = () => {
 									placeholder="NarutoUzumaki123"
 									value="password"
 									onchange={(e) => handleChange(e, "password")}
-									type="password"
+									type={`${show ? "text" : "password"}`}
 								/>
 								{show ? (
 									<LuEye

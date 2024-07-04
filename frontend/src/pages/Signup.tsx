@@ -11,7 +11,6 @@ import { LuEye, LuEyeOff } from "react-icons/lu";
 const Signup: React.FC = () => {
 	const BACKEND_URL = import.meta.env.VITE_DATABASE_URL;
 	const navigate = useNavigate();
-	const [error, setError] = useState<string | null>(null);
 	const [show, setShow] = useState<boolean>(false);
 	const [userInput, setUserInput] = useState<signUpType>({
 		name: "",
@@ -36,10 +35,9 @@ const Signup: React.FC = () => {
 				userInput
 			);
 			if (res.data.status === 406 || res.data.status === 403) {
-				setError(res.data.message);
 				toast((t) => (
 					<div className="bg-red-700 text-white p-4 rounded-md shadow-lg -mx-5 -my-3">
-						<span className="font-bold">{error}</span>
+						<span className="font-bold">{res.data.message}</span>
 						<button
 							className="ml-2 text-red-500"
 							onClick={() => {
