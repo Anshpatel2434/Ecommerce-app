@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const useItems = () => {
 	const BACKEND_URL = import.meta.env.VITE_DATABASE_URL;
-	const [loading, setLoading] = useState<boolean>(false);
+	const [loading, setLoading] = useState<boolean>(true);
 	const [items, setItems] = useState<itemInputType[]>([]);
 
 	useEffect(() => {

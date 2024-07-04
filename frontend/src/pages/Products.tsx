@@ -4,6 +4,7 @@ import ItemCard from "../components/ItemCard";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { itemInputType } from "@anshpatel2434/ecommerce";
+import Loading from "../components/Loading";
 
 const Products: React.FC = () => {
 	const { items, loading } = useItems();
@@ -19,14 +20,14 @@ const Products: React.FC = () => {
 
 	useEffect(() => {
 		setCards(items);
-	}, []);
+	}, [loading]);
 
 	return (
 		<div className="flex flex-col overflow-x-hidden bg-gray-900 text-white min-h-screen">
 			<Navbar />
 			<div className="min-h-screen flex flex-col items-center mt-20">
 				{loading ? (
-					<div className="text-xl">Loading...</div>
+					<Loading />
 				) : (
 					<div className="w-11/12 flex flex-col items-center">
 						{/* Search bar and dropdown */}
