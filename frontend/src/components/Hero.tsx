@@ -1,6 +1,6 @@
 import React from "react";
 
-const Hero = () => {
+const Hero:React.FC = () => {
   return (
     <section className="bg-white h-screen dark:bg-gray-900 mt-16">
       <div className="grid max-w-screen-2xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
