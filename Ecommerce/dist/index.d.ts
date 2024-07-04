@@ -24,3 +24,23 @@ export declare const signInInput: z.ZodObject<{
     password: string;
 }>;
 export type signInType = z.infer<typeof signInInput>;
+export declare const itemInput: z.ZodObject<{
+    category: z.ZodString;
+    itemName: z.ZodString;
+    itemPrice: z.ZodNumber;
+    itemQuantity: z.ZodNumber;
+    itemImage: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    category: string;
+    itemName: string;
+    itemPrice: number;
+    itemQuantity: number;
+    itemImage?: string | undefined;
+}, {
+    category: string;
+    itemName: string;
+    itemPrice: number;
+    itemQuantity: number;
+    itemImage?: string | undefined;
+}>;
+export type itemInputType = z.infer<typeof itemInput>;

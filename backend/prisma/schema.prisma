@@ -14,8 +14,61 @@ datasource db {
 }
 
 model User {
-  id       String @id @default(uuid())
-  email    String @unique
+  id       String   @id @default(uuid())
+  email    String   @unique
   name     String
   password String
+  Profile  Profile?
+  Order    Order[]
+  Cart     Cart?
+  Item     Item[]
+}
+
+model Profile {
+  id      String @id @default(uuid())
+  user    User   @relation(fields: [userId], references: [id])
+  userId  String @unique
+  phone   String
+  city    String
+  state   String
+  country String
+  pincode String
+  address String
+}
+
+model Item {
+  id           String  @id @default(uuid())
+  user         User    @relation(fields: [userId], references: [id])
+  userId       String
+  category     String
+  itemName     String
+  itemPrice    Float
+  itemQuantity Int
+  itemImage    String?
+}
+
+model Order {
+  id           String   @id @default(uuid())
+  user         User     @relation(fields: [userId], references: [id])
+  userId       String
+  orderDate    DateTime @default(now())
+  orderStatus  String
+  orderContent String
+}
+
+model Cart {
+  id     String     @id @default(uuid())
+  user   User       @relation(fields: [userId], references: [id])
+  userId String     @unique
+  items  CartItem[]
+}
+
+model CartItem {
+  id           String  @id @default(uuid())
+  cart         Cart    @relation(fields: [cartId], references: [id])
+  cartId       String
+  itemName     String
+  itemPrice    Float
+  itemQuantity Int
+  itemImage    String?
 }
