@@ -49,6 +49,7 @@ userRouter.post("/signup", async (c) => {
 			});
 		} catch (error) {
 			return c.json({
+				error: error,
 				message: "error while creating user",
 			});
 		}
