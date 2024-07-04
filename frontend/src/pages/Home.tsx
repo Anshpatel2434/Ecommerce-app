@@ -19,6 +19,7 @@ const Home: React.FC = () => {
 				>
 					<div className="text-lg font-bold">{user.name}</div>
 					<div className="text-sm text-gray-700">{user.email}</div>
+
 				</div>
 			) : (
 				<div>Home</div>
