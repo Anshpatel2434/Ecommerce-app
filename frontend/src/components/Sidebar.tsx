@@ -34,7 +34,8 @@ const Sidebar: React.FC = () => {
           <li>
             <button
               onClick={() => {
-                navigate("/profile");
+                if (loggedIn) navigate("/profile");
+                else navigate("/signup");
                 setSidebar(false);
               }}
               className="flex w-full items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -55,7 +56,10 @@ const Sidebar: React.FC = () => {
 
           <li>
             <button
-              onClick={() => navigate("/products")}
+              onClick={() => {
+                setSidebar(false);
+                navigate("/products");
+              }}
               className="flex w-full items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
               <svg

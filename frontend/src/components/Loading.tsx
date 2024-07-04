@@ -1,10 +1,10 @@
 const Loading = () => {
   return (
-    <section className="bg-[#071e34] flex font-medium items-center justify-center min-h-screen">
-      <div>
+    <section className="bg-[#93b8db] flex font-medium items-center justify-center min-h-screen w-screen">
+      <div className="z-50">
         <svg
           aria-hidden="true"
-          className="w-24 h-24 animate-spin dtext-gray-600 fill-blue-600"
+          className="w-24 h-24 animate-spin text-gray-600 fill-blue-600"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
