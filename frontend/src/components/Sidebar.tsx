@@ -12,8 +12,8 @@ const Sidebar: React.FC = () => {
     AppContext
   ) as Context;
   return (
-    <aside className="fixed top-0 border-r-2 flex flex-col border-r-white shadow-xl left-0 z-40 md:w-64 w-screen h-screen transition-transform -translate-x-full translate-x-0">
-      <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+    <aside className="fixed top-0 border-r-2 flex flex-col border-r-white shadow-xl left-0 z-40 md:w-64 w-screen h-screen transition-transform translate-x-0">
+      <div className="h-full px-3 py-4 overflow-y-auto bg-gray-800">
         <div className="w-full border-b-white border-b-2 p-4 font-playwrite text-2xl font-extrabold text-white">
           Dalla'sShop
         </div>
