@@ -10,7 +10,7 @@ const ProfileSection = () => {
   const navigate = useNavigate();
   const { profile, loading, setProfile, status } = useProfile();
   const { user } = useContext(AppContext) as Context;
-  const [firstname, secondname] = user.name.split(" ");
+  const name = user.name;
 
   useEffect(() => {
     setProfile(profile);
@@ -27,13 +27,13 @@ const ProfileSection = () => {
                   <section className="mx-auto bg-gray-800 rounded-2xl flex flex-col justify-center items-center px-8 py-6 shadow-2xl w-full max-w-md md:max-w-lg lg:max-w-xl">
                     <div className="mt-6 w-fit mx-auto">
                       <div className="rounded-full font-playwrite flex items-center justify-center text-3xl text-white w-28 h-28 border-4 border-blue-500">
-                        {firstname[0] + secondname[0]}
+                        {name[0]}
                       </div>
                     </div>
 
                     <div className="mt-8 text-center">
                       <h2 className="text-white font-bold text-2xl tracking-wide">
-                        {firstname} {secondname}
+                        {name}
                       </h2>
                     </div>
 
