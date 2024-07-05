@@ -41,18 +41,18 @@ itemRouter.post("/addItem", async (c) => {
 				message: result.error.issues[0].message,
 			});
 		}
-    // Create the item in the database
-    const item = await prisma.item.create({
-      data: {
-        userId: c.get("userId"),
-        category: body.category,
-        itemName: body.itemName,
-        itemPrice: body.itemPrice,
-        itemQuantity: body.itemQuantity,
-        itemImage: body.itemImage || null,
-        itemDescription: body.itemDescription,
-      },
-    });
+		// Create the item in the database
+		const item = await prisma.item.create({
+			data: {
+				userId: c.get("userId"),
+				category: body.category,
+				itemName: body.itemName,
+				itemPrice: body.itemPrice,
+				itemQuantity: body.itemQuantity,
+				itemImage: body.itemImage || null,
+				itemDescription: body.itemDescription,
+			},
+		});
 
 		return c.json({
 			message: "Item added successfully",
@@ -91,6 +91,41 @@ itemRouter.get("/allItems", async (c) => {
 	} catch (error) {
 		return c.json({
 			message: "error while fetching all items",
+			error: error,
+		});
+	}
+});
+
+itemRouter.get("/itemInfo/:id", async (c) => {
+	const prisma = new PrismaClient({
+		datasourceUrl: c.env?.DATABASE_URL,
+	}).$extends(withAccelerate());
+
+	try {
+		const id = c.req.param("id");
+
+		const res = await prisma.item.findUnique({
+			where: {
+				id: id,
+			},
+			select: {
+				userId: true,
+				itemName: true,
+				itemPrice: true,
+				itemQuantity: true,
+				category: true,
+				itemImage: true,
+				itemDescription: true,
+			},
+		});
+		return c.json({
+			item: res,
+		});
+	} catch (error) {
+		console.error("Error occurred:", error);
+		return c.json({
+			status: 500,
+			message: "Internal server error",
 			error: error,
 		});
 	}
