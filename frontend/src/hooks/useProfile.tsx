@@ -26,7 +26,7 @@ export const useProfile = () => {
       })
       .then((response) => {
         setProfile(response.data.profile);
-        if (response.data.profile.phone) setStatus(200);
+        if (response.data.profile) setStatus(200);
         else setStatus(403);
         setLoading(false);
       })
