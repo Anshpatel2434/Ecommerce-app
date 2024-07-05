@@ -1,6 +1,6 @@
 const Loading = () => {
   return (
-    <section className="bg-gradient-to-br from-gray-800 via-gray-900 to-black flex flex-col items-center justify-center min-h-screen w-screen">
+    <section className="bg-gray-900 flex flex-col items-center justify-center min-h-screen w-screen">
       {/* Rotating rings */}
       <div className="w-full h-full flex flex-col justify-center items-center mb-20">
         <div className="relative flex items-center justify-center w-40 h-40 mb-10">

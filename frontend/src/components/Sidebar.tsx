@@ -148,7 +148,10 @@ const Sidebar: React.FC = () => {
         </ul>
         <ul className="pt-4 mt-4 space-y-2 font-medium border-t  border-gray-700">
           <li>
-            <button className="flex w-full items-center p-2  transition duration-75 rounded-lg hover:bg-gray-700 text-white group">
+            <button
+              onClick={() => navigate("/about")}
+              className="flex w-full items-center p-2  transition duration-75 rounded-lg hover:bg-gray-700 text-white group"
+            >
               <svg
                 className="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400 group-hover:text-white"
                 aria-hidden="true"
@@ -158,7 +161,7 @@ const Sidebar: React.FC = () => {
               >
                 <path d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z" />
               </svg>
-              <span className="ms-3">About Us</span>
+              <span className="ms-3">About</span>
             </button>
           </li>
           <li>

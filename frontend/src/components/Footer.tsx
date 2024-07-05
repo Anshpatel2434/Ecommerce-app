@@ -1,7 +1,9 @@
 import React from "react";
 import { FaBagShopping } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const Footer: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <footer className=" border-t-2 border-t-gray-700 flex justify-center items-center shadow w-screen bg-gray-900">
       <div className="w-full mx-auto p-4 mt-4 ">
@@ -14,7 +16,10 @@ const Footer: React.FC = () => {
           </div>
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
             <li>
-              <button className="hover:underline text-lg me-4 md:me-6">
+              <button
+                onClick={() => navigate("/about")}
+                className="hover:underline text-lg me-4 md:me-6"
+              >
                 About
               </button>
             </li>
