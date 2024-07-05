@@ -3,7 +3,7 @@ import { FaBagShopping } from "react-icons/fa6";
 
 const Footer: React.FC = () => {
   return (
-    <footer className=" border-t-2  border-t-gray-700  flex justify-center items-center shadow w-screen bg-gray-900">
+    <footer className=" border-t-2 border-t-gray-700 flex justify-center items-center shadow w-screen bg-gray-900">
       <div className="w-full mx-auto p-4 mt-4 ">
         <div className="sm:flex sm:items-center sm:justify-between">
           <div className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">

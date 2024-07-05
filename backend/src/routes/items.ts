@@ -41,19 +41,18 @@ itemRouter.post("/addItem", async (c) => {
 				message: result.error.issues[0].message,
 			});
 		}
-
-		// Create the item in the database
-		const item = await prisma.item.create({
-			data: {
-				userId: c.get("userId"),
-				category: body.category,
-				itemName: body.itemName,
-				itemPrice: body.itemPrice,
-				itemQuantity: body.itemQuantity,
-				itemDescription: body.itemDescription,
-				itemImage: body.itemImage || null,
-			},
-		});
+    // Create the item in the database
+    const item = await prisma.item.create({
+      data: {
+        userId: c.get("userId"),
+        category: body.category,
+        itemName: body.itemName,
+        itemPrice: body.itemPrice,
+        itemQuantity: body.itemQuantity,
+        itemImage: body.itemImage || null,
+        itemDescription: body.itemDescription,
+      },
+    });
 
 		return c.json({
 			message: "Item added successfully",
