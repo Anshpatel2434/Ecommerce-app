@@ -25,7 +25,7 @@ const GoogleButton: React.FC = () => {
 		},
 		onError: () =>
 			toast((t) => (
-				<div className="bg-red-700 text-white p-4 rounded-md shadow-lg -mx-5 -my-3 w-96">
+				<div className="flex justify-between bg-red-700 text-white p-4 rounded-md shadow-lg -mx-5 -my-3 w-96">
 					<span className="font-bold">Login Failed, Please Login Manually</span>
 					<button
 						className="ml-2 text-red-500"

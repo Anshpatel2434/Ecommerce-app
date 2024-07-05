@@ -39,7 +39,7 @@ const Signup: React.FC = () => {
 			);
 			if (res.data.status === 406 || res.data.status === 403) {
 				toast((t) => (
-					<div className="bg-red-700 text-white p-4 rounded-md shadow-lg -mx-5 -my-3">
+					<div className="flex justify-between bg-red-700 text-white p-4 rounded-md shadow-lg -mx-5 -my-3">
 						<span className="font-bold">{res.data.message}</span>
 						<button
 							className="ml-2 text-red-500"
