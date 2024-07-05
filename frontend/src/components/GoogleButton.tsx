@@ -21,7 +21,6 @@ const GoogleButton: React.FC = () => {
 			const { error, error_description, error_uri, ...userWithoutErrors } =
 				tokenResponse;
 			setGoogle(userWithoutErrors as Google);
-			loginUser();
 		},
 		onError: () =>
 			toast((t) => (
@@ -40,6 +39,8 @@ const GoogleButton: React.FC = () => {
 	});
 
 	async function loginUser() {
+		console.log("exists?");
+		console.log(tempUser.email);
 		try {
 			const res = await axios.post(`${BACKEND_URL}/api/v1/user/checkExist`, {
 				email: tempUser.email,
