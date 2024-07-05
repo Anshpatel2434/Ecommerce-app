@@ -4,13 +4,14 @@ import axios from "axios";
 import { AppContext, Context } from "../context/AppContext";
 import { FcGoogle } from "react-icons/fc";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useFetcher, useNavigate } from "react-router-dom";
 
 type Google = Omit<TokenResponse, "error" | "error_description" | "error_uri">;
 
 const GoogleButton: React.FC = () => {
 	const navigate = useNavigate();
 	const [google, setGoogle] = useState<Google | undefined>(undefined);
+	const [askPassword, setAskPassword] = useState<boolean>(false);
 	const { setUser, setLoggedIn, tempUser, setTempUser } = useContext(
 		AppContext
 	) as Context;
@@ -66,13 +67,21 @@ const GoogleButton: React.FC = () => {
 					navigate("/");
 				}, 2000);
 			} else if (res.data.status == 404) {
-				navigate("/askPassword");
+				setAskPassword(true);
 			}
 		} catch (error) {
 			console.log("error while sending request");
 			console.log(error);
 		}
 	}
+
+	useEffect(() => {
+		if (!askPassword) {
+			navigate("/signin");
+		} else {
+			navigate("/askPassword");
+		}
+	}, [askPassword]);
 
 	useEffect(() => {
 		if (google) {
