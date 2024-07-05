@@ -5,6 +5,7 @@ import Signin from "./pages/Signin";
 import Profile from "./pages/Profile";
 import Products from "./pages/Products";
 import Loading from "./components/Loading";
+import AskPassword from "./components/AskPassword";
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 					<Route path="/profile" element={<Profile />} />
 					<Route path="/products" element={<Products />} />
 					<Route path="/loading" element={<Loading />} />
+					<Route path="/askPassword" element={<AskPassword />} />
 				</Routes>
 			</BrowserRouter>
 		</>
