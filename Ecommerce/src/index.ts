@@ -24,6 +24,9 @@ export const itemInput = z.object({
 	itemName: z.string().min(1, { message: "Item Name cannot be empty" }),
 	itemPrice: z.number().min(1, { message: "Item Price cannot be empty" }),
 	itemQuantity: z.number().min(1, { message: "Item Quantity cannot be empty" }),
+	itemDescription: z
+		.string()
+		.min(100, { message: "Description should be atleast of 100 characters" }),
 	itemImage: z.string().url().optional(),
 });
 

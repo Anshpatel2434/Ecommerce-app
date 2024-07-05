@@ -20,5 +20,8 @@ exports.itemInput = zod_1.z.object({
     itemName: zod_1.z.string().min(1, { message: "Item Name cannot be empty" }),
     itemPrice: zod_1.z.number().min(1, { message: "Item Price cannot be empty" }),
     itemQuantity: zod_1.z.number().min(1, { message: "Item Quantity cannot be empty" }),
-    itemImage: zod_1.z.string().optional(),
+    itemDescription: zod_1.z
+        .string()
+        .min(100, { message: "Description should be atleast of 100 characters" }),
+    itemImage: zod_1.z.string().url().optional(),
 });

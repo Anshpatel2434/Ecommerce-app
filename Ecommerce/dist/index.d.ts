@@ -29,18 +29,21 @@ export declare const itemInput: z.ZodObject<{
     itemName: z.ZodString;
     itemPrice: z.ZodNumber;
     itemQuantity: z.ZodNumber;
+    itemDescription: z.ZodString;
     itemImage: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
     category: string;
     itemName: string;
     itemPrice: number;
     itemQuantity: number;
+    itemDescription: string;
     itemImage?: string | undefined;
 }, {
     category: string;
     itemName: string;
     itemPrice: number;
     itemQuantity: number;
+    itemDescription: string;
     itemImage?: string | undefined;
 }>;
 export type itemInputType = z.infer<typeof itemInput>;
