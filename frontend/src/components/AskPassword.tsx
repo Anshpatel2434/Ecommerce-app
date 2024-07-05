@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext, Context } from "../context/AppContext";
 import toast, { Toaster } from "react-hot-toast";
@@ -12,6 +12,12 @@ const AskPassword: React.FC = () => {
 	const { tempUser, setTempUser, setUser, setLoggedIn } = useContext(
 		AppContext
 	) as Context;
+
+	useEffect(() => {
+		if (tempUser.email === "") {
+			navigate(-1);
+		}
+	}, [tempUser]);
 
 	async function handleSendRequest() {
 		if (password === confirmPassword) {
