@@ -25,9 +25,9 @@ const Sidebar: React.FC = () => {
 								navigate("/");
 								setSidebar(false);
 							}}
-							className="flex w-full items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+							className="flex w-full items-center p-2  rounded-lg text-white hover:bg-gray-700 group"
 						>
-							<IoHome className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+							<IoHome className="w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white" />
 							<span className="ms-3">Home</span>
 						</button>
 					</li>
@@ -38,10 +38,10 @@ const Sidebar: React.FC = () => {
 								else navigate("/signup");
 								setSidebar(false);
 							}}
-							className="flex w-full items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+							className="flex w-full items-center p-2  rounded-lg text-white  hover:bg-gray-700 group"
 						>
 							<svg
-								className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+								className="w-5 h-5  transition duration-75 text-gray-400  group-hover:text-white"
 								aria-hidden="true"
 								xmlns="http://www.w3.org/2000/svg"
 								fill="currentColor"
@@ -60,10 +60,10 @@ const Sidebar: React.FC = () => {
 								setSidebar(false);
 								navigate("/products");
 							}}
-							className="flex w-full items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+							className="flex w-full items-center p-2  rounded-lg text-white hover:bg-gray-700 group"
 						>
 							<svg
-								className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+								className="flex-shrink-0 w-5 h-5  transition duration-75 group-hover:text-white"
 								aria-hidden="true"
 								xmlns="http://www.w3.org/2000/svg"
 								fill="currentColor"
@@ -87,9 +87,9 @@ const Sidebar: React.FC = () => {
 									navigate("/");
 									setSidebar(false);
 								}}
-								className="flex w-full items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+								className="flex w-full items-center p-2  rounded-lg text-white hover:bg-gray-700 group"
 							>
-								<BiLogOutCircle className="w-6 h-6 ml-[-0.3rem] text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+								<BiLogOutCircle className="w-6 h-6 ml-[-0.3rem]  transition duration-75 text-gray-400 group-hover:text-white" />
 								<span className="ms-3 whitespace-nowrap">Log Out</span>
 							</button>
 						</li>
@@ -101,10 +101,10 @@ const Sidebar: React.FC = () => {
 										navigate("/signin");
 										setSidebar(false);
 									}}
-									className="flex w-full items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+									className="flex w-full items-center p-2  rounded-lg text-white hover:bg-gray-700 group"
 								>
 									<svg
-										className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+										className="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400 group-hover:text-white"
 										aria-hidden="true"
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
@@ -127,10 +127,10 @@ const Sidebar: React.FC = () => {
 										navigate("/signup");
 										setSidebar(false);
 									}}
-									className="flex w-full items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+									className="flex w-full items-center p-2  rounded-lg text-white hover:bg-gray-700 group"
 								>
 									<svg
-										className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+										className="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400 group-hover:text-white"
 										aria-hidden="true"
 										xmlns="http://www.w3.org/2000/svg"
 										fill="currentColor"
@@ -146,11 +146,11 @@ const Sidebar: React.FC = () => {
 						</>
 					)}
 				</ul>
-				<ul className="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
+				<ul className="pt-4 mt-4 space-y-2 font-medium border-t  border-gray-700">
 					<li>
-						<button className="flex w-full items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+						<button className="flex w-full items-center p-2  transition duration-75 rounded-lg hover:bg-gray-700 text-white group">
 							<svg
-								className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+								className="flex-shrink-0 w-5 h-5  transition duration-75 :text-gray-400 group-hover:text-white"
 								aria-hidden="true"
 								xmlns="http://www.w3.org/2000/svg"
 								fill="currentColor"
@@ -162,9 +162,9 @@ const Sidebar: React.FC = () => {
 						</button>
 					</li>
 					<li>
-						<button className="flex items-center p-2 w-full text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+						<button className="flex items-center p-2 w-full  transition duration-75 rounded-lg hover:bg-gray-700 text-white group">
 							<svg
-								className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+								className="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400 group-hover:text-white"
 								aria-hidden="true"
 								xmlns="http://www.w3.org/2000/svg"
 								fill="currentColor"
