@@ -6,7 +6,6 @@ import { RxCross2 } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
 import image from "../assets/AuthImage.jpg";
 import { LuEye, LuEyeOff } from "react-icons/lu";
-import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AppContext, Context } from "../context/AppContext";
 import GoogleButton from "../components/GoogleButton";

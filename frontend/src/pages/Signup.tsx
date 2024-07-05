@@ -2,7 +2,6 @@ import React, { ChangeEvent, useState } from "react";
 import { signUpType } from "@anshpatel2434/ecommerce";
 import axios from "axios";
 import { RxCross2 } from "react-icons/rx";
-import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import image from "../assets/AuthImage.jpg";
