@@ -1,35 +1,92 @@
 import React from "react";
-import { itemInputType } from "@anshpatel2434/ecommerce";
 import { Card, CardBody, CardFooter } from "@nextui-org/card";
+import { itemType } from "../hooks/useItems";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
-const ItemCard: React.FC<itemInputType> = ({
-	itemName,
-	itemPrice,
-	itemQuantity,
-	itemImage,
-}) => {
+interface ItemProps {
+	item: itemType;
+	setShowPopup: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ItemCard: React.FC<ItemProps> = ({ item, setShowPopup }) => {
+	const navigate = useNavigate();
+	const BACKEND_URL = import.meta.env.VITE_DATABASE_URL;
+
+	async function handleCartAdd() {
+		try {
+			const res = await axios.post(
+				`${BACKEND_URL}/api/v1/cart/addToCart`,
+				{
+					userId: item.userId,
+					id: item.id,
+					itemName: item.itemName,
+					category: item.category,
+					itemPrice: item.itemPrice,
+					itemQuantity: item.itemQuantity,
+					itemImage: item.itemImage,
+					itemDescription: item.itemDescription,
+				},
+				{
+					headers: {
+						Authorization: localStorage.getItem("token"),
+					},
+				}
+			);
+			if (res.status === 403) {
+				toast((t) => (
+					<div className="flex justify-between bg-red-700 text-white p-4 rounded-md shadow-lg -mx-5 -my-3 w-96">
+						<span className="font-bold">You Are Not Logged In!!</span>
+						<button
+							className="ml-2 text-red-500"
+							onClick={() => {
+								toast.dismiss(t.id);
+							}}
+						>
+							❌
+						</button>
+					</div>
+				));
+			} else if (res.status === 200) {
+				console.log(res.data);
+				setShowPopup(true);
+			}
+		} catch (error) {
+			alert("error while adding to cart");
+		}
+	}
+
 	return (
 		<Card
 			isPressable
 			className="w-full md:w-1/2 lg:w-1/4 h-[26em] flex flex-col justify-between items-center bg-gray-800 text-white rounded-2xl shadow-lg transform transition-transform hover:scale-105"
+			onClick={() => {
+				navigate(`/itemInfo/${item.id}`);
+			}}
 		>
 			<CardBody className="overflow-hidden p-0 rounded-t-2xl">
 				<img
 					width="100%"
-					alt={itemName}
+					alt={item.itemName}
 					className="w-full object-cover h-[14em] rounded-t-2xl"
-					src={itemImage}
+					src={item.itemImage}
 				/>
 			</CardBody>
-			<CardBody className="flex flex-col justify-center items-center p-4">
-				<div className="text-xl font-bold">{itemName}</div>
-				<div className="flex justify-between w-full mt-2 text-lg">
-					<div className="text-green-400">₹{itemPrice}</div>
-					<div className="text-gray-400">Quantity: {itemQuantity}</div>
+			<CardBody className="flex flex-col justify-center items-center p-4 gap-1">
+				<div className="text-xl font-bold">{item.itemName}</div>
+				<div className="text-green-400">₹{item.itemPrice}</div>
+				<div className="text-sm text-gray-400 text-center">
+					{item.itemDescription.substring(0, 80)}...
 				</div>
 			</CardBody>
 			<CardFooter className="bg-gray-700 w-full flex justify-center items-center rounded-b-2xl hover:bg-gray-600 transition-all duration-300">
-				<button className="w-full py-2 text-white font-semibold bg-blue-500 rounded-md hover:bg-blue-400 transition-colors duration-300">
+				<button
+					className="w-full py-2 text-white font-semibold bg-blue-700 rounded-md hover:bg-blue-500 transition-colors duration-300"
+					onClick={() => {
+						handleCartAdd();
+					}}
+				>
 					Add to Cart
 				</button>
 			</CardFooter>

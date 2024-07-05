@@ -38,12 +38,12 @@ const GoogleButton: React.FC = () => {
 			)),
 	});
 
-	async function loginUser() {
+	async function loginUser(email: string) {
 		console.log("exists?");
 		console.log(tempUser.email);
 		try {
 			const res = await axios.post(`${BACKEND_URL}/api/v1/user/checkExist`, {
-				email: tempUser.email,
+				email: email,
 			});
 			console.log("the response from the backend is : ");
 			console.log(res.data);
@@ -91,7 +91,7 @@ const GoogleButton: React.FC = () => {
 						name: res.data.name,
 						email: res.data.email,
 					});
-					loginUser();
+					loginUser(res.data.email);
 				})
 				.catch((err) => console.log(err));
 		}
