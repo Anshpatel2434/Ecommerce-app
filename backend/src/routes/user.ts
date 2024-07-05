@@ -178,3 +178,33 @@ userRouter.post("/checkExist", async (c) => {
 		});
 	}
 });
+
+userRouter.get("/getUser/:userId", async (c) => {
+	const prisma = new PrismaClient({
+		datasourceUrl: c.env?.DATABASE_URL,
+	}).$extends(withAccelerate());
+
+	const userId = c.req.param("userId");
+	try {
+		const res = await prisma.user.findUnique({
+			where: {
+				id: userId,
+			},
+		});
+		if (res) {
+			const data = res;
+			return c.json({
+				name: data.name,
+				email: data.email,
+			});
+		} else {
+			return c.json({
+				message: null,
+			});
+		}
+	} catch (error) {
+		c.json({
+			message: null,
+		});
+	}
+});
