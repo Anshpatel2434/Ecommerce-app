@@ -5,7 +5,10 @@ import Signin from "./pages/Signin";
 import Profile from "./pages/Profile";
 import Products from "./pages/Products";
 import Loading from "./components/Loading";
+import AskPassword from "./components/AskPassword";
 import SetProfile from "./pages/SetProfile";
+
+
 
 function App() {
   return (
@@ -20,10 +23,11 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/loading" element={<Loading />} />
           <Route path="/setProfile" element={<SetProfile />} />
+          <Route path="/askPassword" element={<AskPassword />} />
         </Routes>
       </BrowserRouter>
     </>
   );
-}
+
 
 export default App;

@@ -9,6 +9,7 @@ import image from "../assets/AuthImage.jpg";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { useContext } from "react";
 import { AppContext, Context } from "../context/AppContext";
+import GoogleButton from "../components/GoogleButton";
 
 const Signup: React.FC = () => {
 	const { setUser, setLoggedIn } = useContext(AppContext) as Context;
@@ -133,13 +134,7 @@ const Signup: React.FC = () => {
 							</button>
 						</div>
 						<div className="text-gray-500">----------- OR -----------</div>
-						<button
-							className="bg-gray-700 hover:bg-gray-800 text-white py-3 px-6 rounded-full shadow-md flex items-center justify-center md:gap-2 transform transition duration-200 hover:scale-105 w-full text-sm md:text-lg"
-							onClick={sendRequest}
-						>
-							<FcGoogle className="mr-[1px] text-[16px] md:text-lg" />
-							Sign In with Google
-						</button>
+						<GoogleButton />
 						<p className="text-gray-300 text-center mt-4">
 							Already signed in?{" "}
 							<div

@@ -147,3 +147,34 @@ userRouter.get("/getUser", async (c) => {
 		});
 	}
 });
+
+userRouter.post("/checkExist", async (c) => {
+	const prisma = new PrismaClient({
+		datasourceUrl: c.env?.DATABASE_URL,
+	}).$extends(withAccelerate());
+
+	const body = await c.req.json();
+
+	try {
+		const user = await prisma.user.findUnique({
+			where: {
+				email: body.email,
+			},
+		});
+		if (user) {
+			const jwt = await sign({ id: user.id }, c.env.JWT_SECRET);
+			return c.json({
+				status: 403,
+				jwt: jwt,
+			});
+		} else {
+			return c.json({
+				status: 404,
+			});
+		}
+	} catch (error) {
+		return c.json({
+			status: 404,
+		});
+	}
+});
