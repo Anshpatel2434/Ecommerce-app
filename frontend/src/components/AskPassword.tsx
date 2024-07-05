@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext, Context } from "../context/AppContext";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
 const AskPassword: React.FC = () => {
-	const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+	const BACKEND_URL = import.meta.env.VITE_DATABASE_URL;
 	const [password, setPassword] = useState<string>("");
 	const [confirmPassword, setConfirmPassword] = useState<string>("");
 	const navigate = useNavigate();
@@ -19,6 +19,10 @@ const AskPassword: React.FC = () => {
 				...tempUser,
 				password: password,
 			});
+			console.log(
+				"in ask password request function and the password matched and the tempuser is: "
+			);
+			console.log(tempUser);
 			try {
 				const res = await axios.post(
 					`${BACKEND_URL}/api/v1/user/signup`,
@@ -61,7 +65,7 @@ const AskPassword: React.FC = () => {
 					alert(res.data.message);
 				}
 			} catch (error) {
-				alert("Error while sending request");
+				console.log(error);
 			}
 		} else {
 			toast((t) => (
@@ -81,6 +85,7 @@ const AskPassword: React.FC = () => {
 	}
 	return (
 		<div className="max-w-md mx-auto bg-gray-800 text-white p-8 rounded-lg shadow-lg">
+			<Toaster />
 			<h2 className="text-2xl font-semibold text-center mb-6">
 				Set Your Password
 			</h2>
