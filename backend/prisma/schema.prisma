@@ -28,11 +28,11 @@ model Profile {
   id      String @id @default(uuid())
   user    User   @relation(fields: [userId], references: [id])
   userId  String @unique
-  phone   Int
+  phone   String
   city    String
   state   String
   country String
-  pincode Int
+  pincode String
   address String
 }
 

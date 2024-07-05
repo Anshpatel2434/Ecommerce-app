@@ -19,12 +19,15 @@ const AskPassword: React.FC = () => {
 		}
 	}, [tempUser]);
 
+	useEffect(() => {
+		setTempUser({
+			...tempUser,
+			password: password,
+		});
+	}, [password]);
+
 	async function handleSendRequest() {
 		if (password === confirmPassword) {
-			setTempUser({
-				...tempUser,
-				password: password,
-			});
 			console.log(
 				"in ask password request function and the password matched and the tempuser is: "
 			);

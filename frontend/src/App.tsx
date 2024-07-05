@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import Loading from "./components/Loading";
 import AskPassword from "./components/AskPassword";
 import SetProfile from "./pages/SetProfile";
+import ItemInfo from "./components/ItemInfo";
 
 function App() {
 	return (
@@ -22,6 +23,7 @@ function App() {
 					<Route path="/loading" element={<Loading />} />
 					<Route path="/setProfile" element={<SetProfile />} />
 					<Route path="/askPassword" element={<AskPassword />} />
+					<Route path="/itemInfo/:id" element={<ItemInfo />} />
 				</Routes>
 			</BrowserRouter>
 		</>
