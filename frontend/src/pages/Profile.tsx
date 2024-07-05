@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 const Profile = () => {
   return (
-    <div className="w-screen h-screen flex flex-col overflow-x-hidden">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <Navbar />
       <ProfileSection />
       <Footer />

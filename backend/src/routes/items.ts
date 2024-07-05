@@ -51,6 +51,7 @@ itemRouter.post("/addItem", async (c) => {
         itemPrice: body.itemPrice,
         itemQuantity: body.itemQuantity,
         itemImage: body.itemImage || null,
+        itemDescription: body.itemDescription,
       },
     });
 

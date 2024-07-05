@@ -87,3 +87,56 @@ profileRouter.post("/createProfile", async (c) => {
     });
   }
 });
+
+profileRouter.put("/updateProfile", async (c) => {
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env?.DATABASE_URL,
+  }).$extends(withAccelerate());
+  try {
+    // Authorization header check
+    const authHeader = c.req.header("Authorization");
+    if (!authHeader) {
+      c.status(403);
+      return c.json({
+        message: "You are not logged in",
+      });
+    }
+
+    // Verify JWT token
+    const user = await verify(authHeader, c.env.JWT_SECRET);
+    const body = await c.req.json();
+
+    const profile = await prisma.profile.update({
+      where: {
+        userId: user.id + "",
+      },
+      data: {
+        city: body.city,
+        state: body.state,
+        country: body.country,
+        pincode: body.pincode,
+        address: body.address,
+        phone: body.phone,
+      },
+    });
+
+    await prisma.user.update({
+      where: {
+        id: user.id + "",
+      },
+      data: {
+        name: body.name,
+      },
+    });
+
+    c.status(200);
+    return c.json({
+      message: "Profile successfully created",
+    });
+  } catch (e) {
+    c.status(411);
+    return c.json({
+      message: e,
+    });
+  }
+});
