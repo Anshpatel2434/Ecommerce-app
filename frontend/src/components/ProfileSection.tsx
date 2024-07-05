@@ -68,9 +68,9 @@ const ProfileSection = () => {
                                   size={20}
                                   className="mt-[0.3rem] mr-3"
                                 />
-                                <span className="text-2xl">Country:</span>
+                                <span className="text-2xl">Country : </span>
                               </td>
-                              <td>{profile?.country}</td>
+                              <td className="ml-2 mt-1">{profile?.country}</td>
                             </tr>
                             <tr className="mt-4 flex items-center">
                               <td className="flex items-center">
@@ -79,9 +79,9 @@ const ProfileSection = () => {
                                   size={20}
                                   className="mt-[0.3rem] mr-3"
                                 />
-                                <span className="text-2xl">State:</span>
+                                <span className="text-2xl">State : </span>
                               </td>
-                              <td>{profile?.state}</td>
+                              <td className="ml-2 mt-1">{profile?.state}</td>
                             </tr>
                             <tr className="mt-4 flex items-center">
                               <td className="flex items-center">
@@ -90,9 +90,9 @@ const ProfileSection = () => {
                                   size={20}
                                   className="mt-[0.3rem] mr-3"
                                 />
-                                <span className="text-2xl">City:</span>
+                                <span className="text-2xl">City : </span>
                               </td>
-                              <td>{profile?.city}</td>
+                              <td className="ml-2 mt-1">{profile?.city}</td>
                             </tr>
                             <tr className="mt-4 flex items-center">
                               <td className="flex items-center">
@@ -101,9 +101,9 @@ const ProfileSection = () => {
                                   size={20}
                                   className="mt-[0.3rem] mr-3"
                                 />
-                                <span className="text-2xl">Pincode:</span>
+                                <span className="text-2xl">Pincode : </span>
                               </td>
-                              <td>{profile?.pincode}</td>
+                              <td className="ml-2 mt-1">{profile?.pincode}</td>
                             </tr>
                             <tr className="mt-4 flex items-center">
                               <td className="flex items-center">
@@ -112,9 +112,9 @@ const ProfileSection = () => {
                                   size={20}
                                   className="mt-[0.3rem] mr-3"
                                 />
-                                <span className="text-2xl">Phone no.:</span>
+                                <span className="text-2xl">Phone no. : </span>
                               </td>
-                              <td>{profile?.phone}</td>
+                              <td className="ml-2 mt-1">{profile?.phone}</td>
                             </tr>
                             <tr className="mt-4 flex flex-col break-all">
                               <td className="flex items-center mb-2">
@@ -123,7 +123,7 @@ const ProfileSection = () => {
                                   size={20}
                                   className="mt-[0.3rem] mr-3"
                                 />
-                                <span className="text-2xl">Email:</span>
+                                <span className="text-2xl">Email : </span>
                               </td>
                               <td className="flex">
                                 {" "}
@@ -141,7 +141,7 @@ const ProfileSection = () => {
                                   size={20}
                                   className="mt-[0.3rem] mr-3"
                                 />
-                                <span className="text-2xl">Address:</span>
+                                <span className="text-2xl">Address : </span>
                               </td>
                               <td className="flex">
                                 <FaArrowRight
