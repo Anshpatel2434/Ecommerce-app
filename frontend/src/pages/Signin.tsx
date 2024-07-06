@@ -1,6 +1,6 @@
 import { signInType } from "@anshpatel2434/ecommerce";
 import axios from "axios";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { RxCross2 } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
@@ -29,6 +29,10 @@ const Signin: React.FC = () => {
 			[field]: e.target.value,
 		});
 	}
+
+	useEffect(() => {
+		if (localStorage.getItem("loggedIn") === "true") navigate("/");
+	}, []);
 
 	async function sendRequest() {
 		try {
@@ -68,6 +72,7 @@ const Signin: React.FC = () => {
 						email: userInput.email,
 					});
 					localStorage.setItem("loggedIn", "" + true);
+					window.location.reload();
 					navigate("/");
 				}, 2000);
 			} else {

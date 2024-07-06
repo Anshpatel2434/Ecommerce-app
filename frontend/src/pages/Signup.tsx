@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { signUpType } from "@anshpatel2434/ecommerce";
 import axios from "axios";
 import { RxCross2 } from "react-icons/rx";
@@ -30,6 +30,10 @@ const Signup: React.FC = () => {
 			[field]: e.target.value,
 		});
 	}
+
+	useEffect(() => {
+		if (localStorage.getItem("loggedIn") === "true") navigate("/");
+	}, []);
 
 	async function sendRequest() {
 		try {
@@ -68,7 +72,8 @@ const Signup: React.FC = () => {
 						name: userInput.name,
 						email: userInput.email,
 					});
-					localStorage.setItem("loggedIn",""+true);
+					localStorage.setItem("loggedIn", "" + true);
+					window.location.reload();
 					navigate("/");
 				}, 2000);
 			} else {

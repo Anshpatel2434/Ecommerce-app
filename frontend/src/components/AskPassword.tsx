@@ -26,6 +26,10 @@ const AskPassword: React.FC = () => {
 		});
 	}, [password]);
 
+	useEffect(() => {
+		if (localStorage.getItem("loggedIn") !== "true") navigate("/");
+	}, []);
+
 	async function handleSendRequest() {
 		if (password === confirmPassword) {
 			console.log(
@@ -69,6 +73,7 @@ const AskPassword: React.FC = () => {
 							email: tempUser.email,
 						});
 						localStorage.setItem("loggedIn", "" + true);
+						window.location.reload();
 						navigate("/");
 					}, 2000);
 				} else {

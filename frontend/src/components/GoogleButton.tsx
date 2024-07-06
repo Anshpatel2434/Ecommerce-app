@@ -62,6 +62,7 @@ const GoogleButton: React.FC = () => {
 						email: tempUser.email,
 					});
 					localStorage.setItem("loggedIn", "" + true);
+					window.location.reload();
 					navigate("/");
 				}, 2000);
 			} else if (res.data.status == 404) {

@@ -8,7 +8,7 @@ const Profile = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (localStorage.getItem("loggedIn") !== "true") navigate("/");
+		if (localStorage.getItem("loggedIn") !== "true") navigate("/signup");
 	}, []);
 
 	return (
