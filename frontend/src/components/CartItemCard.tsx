@@ -69,7 +69,10 @@ const CartItemCard: React.FC<CartItemCardProps> = ({ item, handleRemove }) => {
 						</div>
 					</div>
 					<button
-						onClick={() => handleRemove(item.id)}
+						onClick={(e) => {
+							e.stopPropagation(); // Stop event propagation
+							handleRemove(item.id);
+						}}
 						className="mt-3 md:mt-4 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300"
 					>
 						Remove from Cart
