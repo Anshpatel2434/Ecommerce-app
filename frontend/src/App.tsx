@@ -10,6 +10,7 @@ import SetProfile from "./pages/SetProfile";
 
 import About from "./pages/About";
 import ItemInfo from "./components/ItemInfo";
+import Cart from "./pages/Cart";
 
 function App() {
 	return (
@@ -27,6 +28,7 @@ function App() {
 					<Route path="/setProfile" element={<SetProfile />} />
 					<Route path="/itemInfo/:id" element={<ItemInfo />} />
 					<Route path="/askPassword" element={<AskPassword />} />
+					<Route path="/myCart" element={<Cart />} />
 				</Routes>
 			</BrowserRouter>
 		</>

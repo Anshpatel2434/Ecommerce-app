@@ -112,3 +112,33 @@ cartRouter.post("/addToCart", async (c) => {
 		});
 	}
 });
+
+cartRouter.get("/myCart", async (c) => {
+	const prisma = new PrismaClient({
+		datasourceUrl: c.env?.DATABASE_URL,
+	}).$extends(withAccelerate());
+
+	try {
+		const cart = await prisma.cart.findUnique({
+			where: {
+				userId: c.get("userId"),
+			},
+			include: {
+				items: true, // Include the related items in the result
+			},
+		});
+
+		if (cart) {
+			return c.json({
+				cart: cart,
+			});
+		} else {
+			c.status(404);
+			return c.json({
+				message: "Cart not found, Please add items to your cart",
+			});
+		}
+	} catch (error) {
+		return c.json({ error: "An error occurred while fetching the cart" }, 500);
+	}
+});
