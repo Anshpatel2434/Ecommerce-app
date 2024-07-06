@@ -67,6 +67,7 @@ const Signin: React.FC = () => {
 						name: res.data.name,
 						email: userInput.email,
 					});
+					localStorage.setItem("loggedIn", "" + true);
 					navigate("/");
 				}, 2000);
 			} else {

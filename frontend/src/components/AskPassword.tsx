@@ -68,6 +68,7 @@ const AskPassword: React.FC = () => {
 							name: tempUser.name,
 							email: tempUser.email,
 						});
+						localStorage.setItem("loggedIn", "" + true);
 						navigate("/");
 					}, 2000);
 				} else {

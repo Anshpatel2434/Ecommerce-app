@@ -1,13 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useCart } from "../hooks/useCart";
-import Loading from "../components/Loading";
 import CartItemCard from "../components/CartItemCard";
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
-import { AppContext, Context } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
 
 const Cart: React.FC = () => {
@@ -15,10 +13,9 @@ const Cart: React.FC = () => {
 	const { cartItems, orderDetails } = useCart();
 
 	const navigate = useNavigate();
-	const { loggedIn } = useContext(AppContext) as Context;
 
 	useEffect(() => {
-		if (!loggedIn) navigate("/");
+		if (localStorage.getItem("loggedIn") !== "true") navigate("/");
 	}, []);
 
 	async function handleRemove(id: string) {
@@ -43,7 +40,7 @@ const Cart: React.FC = () => {
 				});
 				setTimeout(() => {
 					window.location.reload();
-				}, 700);
+				}, 300);
 			} else {
 				toast((t) => (
 					<div className="flex justify-between bg-red-700 text-white p-4 rounded-md shadow-lg -mx-5 -my-3 w-96">
@@ -98,7 +95,18 @@ const Cart: React.FC = () => {
 			<Toaster />
 			<Navbar />
 			{cartItems.length === 0 ? (
-				<Loading />
+				<div className="w-full flex justify-center items-center h-screen">
+					<div className="text-center">
+						<h1 className="text-3xl font-bold mb-4">Your Cart is Empty</h1>
+						<p className="text-lg mb-8">Please add items to your cart.</p>
+						<button
+							className="py-3 px-6 text-white font-semibold bg-blue-700 rounded-md hover:bg-blue-500 transition-colors duration-300"
+							onClick={() => navigate("/products")}
+						>
+							Browse Products
+						</button>
+					</div>
+				</div>
 			) : (
 				<div className="w-full flex flex-col lg:flex-row my-20 min-h-screen">
 					<div className="w-full lg:w-1/2 h-full overflow-y-auto flex flex-col gap-6 px-4 lg:px-0">
@@ -120,9 +128,14 @@ const Cart: React.FC = () => {
 									<strong className="text-lg">Order Content:</strong>
 									<div className="text-gray-300">
 										{/* Display your order content here */}
-										{orderDetails.orderContent}
+										{orderDetails.orderContent
+											.split("\n")
+											.map((line, index) => (
+												<div key={index}>{line}</div>
+											))}
 									</div>
 								</div>
+
 								<div className="mb-4">
 									<strong className="text-lg">Date:</strong>{" "}
 									{formatDate(orderDetails.orderDate)}

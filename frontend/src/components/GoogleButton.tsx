@@ -39,8 +39,6 @@ const GoogleButton: React.FC = () => {
 	});
 
 	async function loginUser(email: string) {
-		console.log("exists?");
-		console.log(tempUser.email);
 		try {
 			const res = await axios.post(`${BACKEND_URL}/api/v1/user/checkExist`, {
 				email: email,
@@ -63,6 +61,7 @@ const GoogleButton: React.FC = () => {
 						name: tempUser.name,
 						email: tempUser.email,
 					});
+					localStorage.setItem("loggedIn", "" + true);
 					navigate("/");
 				}, 2000);
 			} else if (res.data.status == 404) {

@@ -2,15 +2,13 @@ import Navbar from "../components/Navbar";
 import ProfileSection from "../components/ProfileSection";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
-import { useContext, useEffect } from "react";
-import { AppContext, Context } from "../context/AppContext";
+import { useEffect } from "react";
 
 const Profile = () => {
 	const navigate = useNavigate();
-	const { loggedIn } = useContext(AppContext) as Context;
 
 	useEffect(() => {
-		if (!loggedIn) navigate("/");
+		if (localStorage.getItem("loggedIn") !== "true") navigate("/");
 	}, []);
 
 	return (
