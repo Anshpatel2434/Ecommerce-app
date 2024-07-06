@@ -52,7 +52,6 @@ const ItemCard: React.FC<ItemProps> = ({ item, setShowPopup }) => {
 					</div>
 				));
 			} else if (res.status === 200) {
-				console.log(res.data);
 				setShowPopup(true);
 			}
 		} catch (error) {

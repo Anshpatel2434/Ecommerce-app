@@ -9,6 +9,7 @@ import AskPassword from "./components/AskPassword";
 import SetProfile from "./pages/SetProfile";
 
 import About from "./pages/About";
+import ItemInfo from "./components/ItemInfo";
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 					<Route path="/loading" element={<Loading />} />
 					<Route path="/about" element={<About />} />
 					<Route path="/setProfile" element={<SetProfile />} />
+					<Route path="/itemInfo/:id" element={<ItemInfo />} />
 					<Route path="/askPassword" element={<AskPassword />} />
 				</Routes>
 			</BrowserRouter>
