@@ -76,8 +76,9 @@ const Sidebar: React.FC = () => {
 					<li>
 						<button
 							onClick={() => {
+								if (loggedIn) navigate("/myCart");
+								else navigate("/signup");
 								setSidebar(false);
-								navigate("/myCart");
 							}}
 							className="flex w-full items-center p-2 rounded-lg text-white hover:bg-gray-700 group"
 						>

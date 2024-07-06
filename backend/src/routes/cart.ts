@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
 import { verify } from "hono/jwt";
+import { connect } from "cloudflare:sockets";
 
 export const cartRouter = new Hono<{
 	Bindings: {
@@ -140,5 +141,34 @@ cartRouter.get("/myCart", async (c) => {
 		}
 	} catch (error) {
 		return c.json({ error: "An error occurred while fetching the cart" }, 500);
+	}
+});
+
+cartRouter.delete("/removeItem", async (c) => {
+	const prisma = new PrismaClient({
+		datasourceUrl: c.env?.DATABASE_URL,
+	}).$extends(withAccelerate());
+	const data = await c.req.json();
+	try {
+		const res = await prisma.cart.update({
+			where: {
+				userId: c.get("userId"),
+			},
+			data: {
+				items: {
+					disconnect: {
+						id: data.id,
+					},
+				},
+			},
+		});
+		c.status(200);
+		return c.json({ message: "Item removed successfully", items: res });
+	} catch (error) {
+		console.error("Error removing item from cart:", error);
+		return c.json(
+			{ error: "An error occurred while removing item from the cart" },
+			500
+		);
 	}
 });

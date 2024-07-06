@@ -3,8 +3,8 @@ import { itemInputType } from "@anshpatel2434/ecommerce";
 import axios from "axios";
 
 export type itemType = itemInputType & {
-	userId: number;
-	id: number;
+	userId: string;
+	id: string;
 };
 
 export const useItems = () => {

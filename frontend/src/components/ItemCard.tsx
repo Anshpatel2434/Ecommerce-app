@@ -55,7 +55,19 @@ const ItemCard: React.FC<ItemProps> = ({ item, setShowPopup }) => {
 				setShowPopup(true);
 			}
 		} catch (error) {
-			alert("error while adding to cart");
+			toast((t) => (
+				<div className="flex justify-between bg-red-700 text-white p-4 rounded-md shadow-lg -mx-5 -my-3 w-96">
+					<span className="font-bold">You Are Not Logged In!!</span>
+					<button
+						className="ml-2 text-red-500"
+						onClick={() => {
+							toast.dismiss(t.id);
+						}}
+					>
+						❌
+					</button>
+				</div>
+			));
 		}
 	}
 

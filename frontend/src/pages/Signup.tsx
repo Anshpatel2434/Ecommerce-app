@@ -138,7 +138,7 @@ const Signup: React.FC = () => {
 							Already signed in?{" "}
 							<div
 								onClick={() => navigate("/signin")}
-								className="text-blue-400 hover:underline"
+								className="text-blue-400 hover:underline hover:cursor-pointer"
 							>
 								Sign in here
 							</div>

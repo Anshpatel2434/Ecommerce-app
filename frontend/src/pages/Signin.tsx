@@ -131,7 +131,7 @@ const Signin: React.FC = () => {
 							Don't have an account?{" "}
 							<div
 								onClick={() => navigate("/signup")}
-								className="text-blue-400 hover:underline"
+								className="text-blue-400 hover:underline hover:cursor-pointer"
 							>
 								Sign up here
 							</div>

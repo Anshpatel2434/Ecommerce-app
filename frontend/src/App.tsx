@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { FC, ReactNode, useLayoutEffect } from "react";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
@@ -7,19 +8,25 @@ import Products from "./pages/Products";
 import Loading from "./components/Loading";
 import AskPassword from "./components/AskPassword";
 import SetProfile from "./pages/SetProfile";
-
 import About from "./pages/About";
 import ItemInfo from "./components/ItemInfo";
 import Cart from "./pages/Cart";
 
-function App() {
+const Wrapper: FC<{ children: ReactNode }> = ({ children }) => {
+	const location = useLocation();
+	useLayoutEffect(() => {
+		document.documentElement.scrollTo(0, 0);
+	}, [location.pathname]);
+	return <>{children}</>;
+};
+
+const App: React.FC = () => {
 	return (
-		<>
-			<BrowserRouter>
+		<BrowserRouter>
+			<Wrapper>
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/signup" element={<Signup />} />
-					<Route path="/signin" element={<Signin />} />
 					<Route path="/signin" element={<Signin />} />
 					<Route path="/profile" element={<Profile />} />
 					<Route path="/products" element={<Products />} />
@@ -30,8 +37,9 @@ function App() {
 					<Route path="/askPassword" element={<AskPassword />} />
 					<Route path="/myCart" element={<Cart />} />
 				</Routes>
-			</BrowserRouter>
-		</>
+			</Wrapper>
+		</BrowserRouter>
 	);
-}
+};
+
 export default App;

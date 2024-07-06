@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { itemInputType } from "@anshpatel2434/ecommerce";
 import axios from "axios";
+import { itemType } from "./useItems";
 
 export type orderDetailsType = {
 	orderDate: Date;
@@ -10,7 +10,7 @@ export type orderDetailsType = {
 };
 
 export const useCart = () => {
-	const [cartItems, setCartItems] = useState<itemInputType[]>([]);
+	const [cartItems, setCartItems] = useState<itemType[]>([]);
 	const [orderDetails, setOrderDetails] = useState<orderDetailsType>({
 		orderDate: new Date(),
 		orderStatus: "Delivering",
@@ -33,7 +33,7 @@ export const useCart = () => {
 			});
 	}, []);
 
-	function getOrderDetails(items: itemInputType[]) {
+	function getOrderDetails(items: itemType[]) {
 		var content = "";
 		var price = 0;
 		items.map((item) => {
@@ -49,6 +49,8 @@ export const useCart = () => {
 
 	return {
 		cartItems,
+		setCartItems,
 		orderDetails,
+		setOrderDetails,
 	};
 };
