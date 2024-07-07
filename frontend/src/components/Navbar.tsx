@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
 					</button>
 					<div className="w-full flex items-center">
 						<span className="text-white mx-auto pr-20 font-playwrite text-2xl sm:text-4xl font-extrabold">
-							Dalla'sShop
+							Scroller'sShop
 						</span>
 					</div>
 				</div>

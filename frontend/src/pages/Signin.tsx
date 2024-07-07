@@ -74,7 +74,7 @@ const Signin: React.FC = () => {
 					localStorage.setItem("loggedIn", "" + true);
 					window.location.reload();
 					navigate("/");
-				}, 2000);
+				}, 1000);
 			} else {
 				alert(res.data.message);
 			}
