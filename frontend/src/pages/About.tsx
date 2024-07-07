@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gray-800 flex flex-col overflow-x-hidden">
+    <div className="min-h-screen bg-gray-900 flex flex-col overflow-x-hidden">
       <Navbar />
       <div className="sm:flex items-center mx-auto  min-h-screen max-w-screen-xl mt-16">
         <div className="sm:w-1/2 md:w-[40rem] p-10">
