@@ -57,7 +57,6 @@ orderRouter.post("/createOrder", async (c) => {
     c.status(200);
     return c.json({
       message: "Order created successfully",
-      order: order,
     });
   } catch (error) {
     console.error("Error occurred:", error);
