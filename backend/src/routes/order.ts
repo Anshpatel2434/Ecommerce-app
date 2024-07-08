@@ -42,15 +42,15 @@ orderRouter.post("/createOrder", async (c) => {
   }).$extends(withAccelerate());
   try {
     // Parse and validate the request body
-    const data = await c.req.json();
+    const body = await c.req.json();
 
     // Create the order in the database
     const order = await prisma.order.create({
       data: {
         userId: c.get("userId"),
-        orderStatus: data.orderDetails.orderStatus,
-        orderContent: data.orderDetails.orderContent,
-        orderPrice: Number(data.orderDetails.orderPrice),
+        orderStatus: body.orderStatus,
+        orderContent: body.orderContent,
+        orderPrice: Number(body.orderPrice),
       },
     });
 
