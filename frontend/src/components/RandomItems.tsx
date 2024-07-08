@@ -61,7 +61,7 @@ const RandomItems = () => {
         <Loading />
       ) : (
         <div className="flex flex-col  items-start">
-          <div className="w-full h-14 flex flex-col font-bold mt-[-35rem] md:mt-[-25rem] lg:mt-[-13rem] text-2xl md:text-4xl text-white">
+          <div className="w-full h-14 flex flex-col font-bold mt-[-10rem] lg:mt-[-13rem] text-2xl md:text-4xl text-white">
             <div className="ml-[7%] mb-6">Recommended Products</div>
             <div className="w-full md:w-[30rem] border-2 border-blue-700 md:ml-[7%]"></div>
           </div>
