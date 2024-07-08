@@ -20,14 +20,19 @@ const Cart: React.FC = () => {
 
   async function createOrder() {
     try {
-      const res = await axios.post(`${BACKEND_URL}/api/v1/order/createOrder`, {
-        headers: {
-          Authorization: localStorage.getItem("token"),
+      const res = await axios.post(
+        `${BACKEND_URL}/api/v1/order/createOrder`,
+        {
+          orderStatus: "Delivering",
+          orderContent: orderDetails.orderContent,
+          orderPrice: orderDetails.orderPrice,
         },
-        data: {
-          orderDetails: orderDetails,
-        },
-      });
+        {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        }
+      );
 
       if (res.status === 200) {
         cartItems.filter((item) => {
