@@ -189,7 +189,12 @@ const Sidebar: React.FC = () => {
 						</button>
 					</li>
 					<li>
-						<button className="flex items-center p-2 w-full  transition duration-75 rounded-lg hover:bg-gray-700 text-white group">
+						<button
+						onClick={() => {
+							setSidebar(false);
+							navigate("/contact");
+						}}
+						className="flex items-center p-2 w-full  transition duration-75 rounded-lg hover:bg-gray-700 text-white group">
 							<svg
 								className="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400 group-hover:text-white"
 								aria-hidden="true"

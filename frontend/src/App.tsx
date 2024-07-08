@@ -11,35 +11,37 @@ import SetProfile from "./pages/SetProfile";
 import About from "./pages/About";
 import ItemInfo from "./components/ItemInfo";
 import Cart from "./pages/Cart";
+import Contact from "./pages/Contact";
 
 const Wrapper: FC<{ children: ReactNode }> = ({ children }) => {
-	const location = useLocation();
-	useLayoutEffect(() => {
-		document.documentElement.scrollTo(0, 0);
-	}, [location.pathname]);
-	return <>{children}</>;
+  const location = useLocation();
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [location.pathname]);
+  return <>{children}</>;
 };
 
 const App: React.FC = () => {
-	return (
-		<BrowserRouter>
-			<Wrapper>
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/signup" element={<Signup />} />
-					<Route path="/signin" element={<Signin />} />
-					<Route path="/profile" element={<Profile />} />
-					<Route path="/products" element={<Products />} />
-					<Route path="/loading" element={<Loading />} />
-					<Route path="/about" element={<About />} />
-					<Route path="/setProfile" element={<SetProfile />} />
-					<Route path="/itemInfo/:id" element={<ItemInfo />} />
-					<Route path="/askPassword" element={<AskPassword />} />
-					<Route path="/myCart" element={<Cart />} />
-				</Routes>
-			</Wrapper>
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter>
+      <Wrapper>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/loading" element={<Loading />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/setProfile" element={<SetProfile />} />
+          <Route path="/itemInfo/:id" element={<ItemInfo />} />
+          <Route path="/askPassword" element={<AskPassword />} />
+          <Route path="/myCart" element={<Cart />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Wrapper>
+    </BrowserRouter>
+  );
 };
 
 export default App;
