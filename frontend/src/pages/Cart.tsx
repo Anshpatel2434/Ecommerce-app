@@ -200,7 +200,7 @@ const Cart: React.FC = () => {
 								<div className="flex items-center">
 									<strong className="text-lg">Total:</strong>
 									<div className="ml-2 text-xl font-bold text-blue-400">
-										${orderDetails.orderPrice}
+										₹{orderDetails.orderPrice}
 									</div>
 								</div>
 							</CardBody>

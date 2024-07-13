@@ -62,7 +62,7 @@ const CartItemCard: React.FC<CartItemCardProps> = ({ item, handleRemove }) => {
 					</p>
 					<div className="flex justify-between items-center md:mt-4 mt-0">
 						<div className="text-base md:text-lg font-bold text-blue-400">
-							${item.itemPrice}
+							₹{item.itemPrice}
 						</div>
 						<div className="text-base md:text-lg text-gray-400">
 							Qty: {item.itemQuantity}

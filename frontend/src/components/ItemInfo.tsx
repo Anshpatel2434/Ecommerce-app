@@ -17,8 +17,6 @@ const ItemInfo: React.FC = () => {
 
 	async function handleCartAdd() {
 		try {
-			console.log("the item in item info");
-			console.log(item);
 			const res = await axios.post(
 				`${BACKEND_URL}/api/v1/cart/addToCart`,
 				{
@@ -121,7 +119,7 @@ const ItemInfo: React.FC = () => {
 								</div>
 								<div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2 md:mb-4">
 									<div className="flex items-center text-green-400 mb-2 md:mb-0">
-										<FaDollarSign className="mr-1 md:mr-2" />
+										<span className="mr-1 md:mr-2 text-2xl">₹</span>
 										<span className="text-xl font-bold">{item.itemPrice}</span>
 									</div>
 									<div>
