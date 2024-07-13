@@ -81,10 +81,14 @@ const Cart: React.FC = () => {
 
 	async function handleRemove(id: string) {
 		try {
-			const res = await axios.delete(
-				`${BACKEND_URL}/api/v1/cart/removeItem`,
-				{}
-			);
+			const res = await axios.delete(`${BACKEND_URL}/api/v1/cart/removeItem`, {
+				headers: {
+					Authorization: localStorage.getItem("token"),
+				},
+				data: {
+					id: id,
+				},
+			});
 
 			if (res.status == 200) {
 				toast("Item removed from cart successfully!", {
