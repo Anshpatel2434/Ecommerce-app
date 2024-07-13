@@ -7,7 +7,7 @@ import Footer from "./Footer";
 import Loading from "./Loading";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
-import { FaMapMarkerAlt, FaPhoneAlt, FaDollarSign } from "react-icons/fa";
+import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
 const ItemInfo: React.FC = () => {
 	const { id } = useParams();
