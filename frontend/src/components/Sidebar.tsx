@@ -15,7 +15,7 @@ const Sidebar: React.FC = () => {
 		<aside className="fixed top-0 border-r-2 min-h-screen flex flex-col border-gray-700 shadow-xl left-0 z-50 md:w-64 w-screen h-screen transition-transform translate-x-0">
 			<div className="h-full px-3 py-4 overflow-y-auto bg-gray-800">
 				<div className="w-full border-b-gray-700 border-b-2 p-4 font-playwrite text-2xl font-extrabold text-white">
-					Dalla'sShop
+					Scroller'sShop
 				</div>
 
 				<ul className="space-y-2 mt-8 font-medium">
@@ -190,11 +190,12 @@ const Sidebar: React.FC = () => {
 					</li>
 					<li>
 						<button
-						onClick={() => {
-							setSidebar(false);
-							navigate("/contact");
-						}}
-						className="flex items-center p-2 w-full  transition duration-75 rounded-lg hover:bg-gray-700 text-white group">
+							onClick={() => {
+								setSidebar(false);
+								navigate("/contact");
+							}}
+							className="flex items-center p-2 w-full  transition duration-75 rounded-lg hover:bg-gray-700 text-white group"
+						>
 							<svg
 								className="flex-shrink-0 w-5 h-5  transition duration-75 text-gray-400 group-hover:text-white"
 								aria-hidden="true"
